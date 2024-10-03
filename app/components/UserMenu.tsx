@@ -5,9 +5,11 @@ import { FaUser } from "react-icons/fa";
 import { MdOutlineMenu } from "react-icons/md";
 import Avatar from "./Navbar/Avatar";
 import MenuItem from "./Navbar/MenuItem";
+import useRegisterModal from "../hooks/useRegisterModal";
 
 const UserMenu = () => {
   const [isopen, setIsOpen] = useState(false);
+  const registerModal = useRegisterModal();
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -39,7 +41,7 @@ const UserMenu = () => {
           <div className="flex flex-col cursor-pointer">
             <>
               <MenuItem onClick={() => {}} label="Login" />
-              <MenuItem onClick={() => {}} label="Sign up" />
+              <MenuItem onClick={registerModal.onOpen} label="Sign up" />
             </>
           </div>
         </div>
